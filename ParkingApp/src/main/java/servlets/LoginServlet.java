@@ -42,14 +42,10 @@ public class LoginServlet extends HttpServlet {
 			out = response.getWriter();
 			if(rs.next()) {
 				UserDetails ud=new UserDetails();
-				ud.setUname(rs.getString(1));
-				ud.setDob(rs.getString(2));
-				ud.setGender(rs.getString(3));
-				ud.setLicence(rs.getString(4));
-				ud.setMobile(rs.getString(5));
-				ud.setEmail(rs.getString(6));
-				ud.setPassword(rs.getString(7));
-				sc.setAttribute("userdetails", ud);
+				
+				ud.setEmail(rs.getString(1));
+				ud.setPassword(rs.getString(2));
+				sc.setAttribute("user", ud);
 				response.sendRedirect("Homepage.html");
 			}
 			else {
